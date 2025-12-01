@@ -6,8 +6,8 @@ import { CarritoComponent } from './carrito/carrito';
 import { CategoriaComponent } from './categoria/categoria';
 import { LoginComponent } from './login/login';
 import { PerfilComponent } from './perfil/perfil';
-import { RecuperarPassword } from './recuperar-password/recuperar-password';
-import { Registro } from './registro/registro';
+import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password';
+import { RegistroComponent } from './registro/registro';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'carrito', component: CarritoComponent },
-  { path: 'categoria/:id', component: CategoriaComponent },
+  { path: 'categoria/:nombre', component: CategoriaComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'recuperar-password', component: RecuperarPasswordComponent },
