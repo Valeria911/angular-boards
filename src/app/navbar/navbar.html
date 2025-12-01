@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" routerLink="/">
+        <img src="assets/img/logoBoards.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+        Boards - Juegos de Mesa
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <!-- Siempre visibles -->
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/categoria', 'medieval']">Medieval</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/categoria', 'cartas']">Cartas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/categoria', 'ingenio']">Ingenio</a>
+            </li>
+
+            <!-- sesión activa -->
+            <ng-container *ngIf="sesion?.logueado">
+
+                <!-- tipo admin -->
+                <li class="nav-item" *ngIf="sesion?.tipo === 'admin'">
+                    <a class="nav-link" routerLink="/admin">Panel Admin</a>
+                </li>
+
+                <!-- tipo cliente -->
+                <li class="nav-item" *ngIf="sesion?.tipo !== 'admin'">
+                    <a class="nav-link" routerLink="/perfil">Mi Perfil</a>
+                </li>
+                <li class="nav-item" *ngIf="sesion?.tipo !== 'admin'">
+                    <a class="nav-link" routerLink="/carrito">Carro de compras</a>
+                </li>
+
+                <!-- salir -->
+                <li class="nav-item">
+                    <a class="nav-link text-danger" (click)="cerrarSesion()" style="cursor: pointer;">Cerrar sesión</a>
+                </li>
+            </ng-container>
+
+            <!-- sin sesión -->
+            <ng-container *ngIf="!sesion?.logueado">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/registro">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Iniciar sesión</a>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</nav>
