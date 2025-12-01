@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
+  selector: 'registro',
   templateUrl: './registro.html',
   styleUrls: ['./registro.css'],
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, RouterModule, CommonModule]
 })
-export class RegisterComponent {
+export class RegistroComponent {
   formRegistro!: FormGroup;
 
   error = '';
@@ -112,7 +114,7 @@ export class RegisterComponent {
       email: datos.email,
       password: datos.password,
       direccion: datos.direccion || '',
-      tipo: 'usuario'
+      tipo: 'cliente'
     };
 
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');

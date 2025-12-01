@@ -1,6 +1,6 @@
 <main class="container my-5">
   <h1 class="text-center mb-4">Formulario de Registro</h1>
-  <p class="text-center lead text-muted">Ingresa tus datos en Boards!</p>
+  <h3 class="text-center lead">Ingresa tus datos en Boards!</h3>
 
   <form [formGroup]="formRegistro" (ngSubmit)="registrar()">
     <!-- nombre -->
@@ -69,7 +69,7 @@
         Ingresar fecha de nacimiento
       </div>
 
-      <!-- Edad actual -->
+      <!-- edad -->
       <p class="text-muted mt-1" *ngIf="edadActual > 0">
         Edad: {{ edadActual }} años
       </p>
@@ -78,10 +78,7 @@
     <!-- password -->
     <div class="mb-3">
       <label class="form-label">Contraseña</label>
-
-      <!-- input-group para botón Mostrar/Ocultar -->
       <div class="input-group">
-
         <input
           [type]="mostrarPassword ? 'text' : 'password'"
           class="form-control"
@@ -91,7 +88,6 @@
             formRegistro.get('password')?.invalid
           "
         />
-
         <button
           type="button"
           class="btn btn-outline-secondary"
@@ -102,7 +98,7 @@
       </div>
 
       <!-- mensajes de error -->
-      <div class="invalid-feedback d-block" *ngIf="formRegistro.get('password')?.errors?.['required']">
+      <div class="invalid-feedback" *ngIf="formRegistro.get('password')?.errors?.['required']">
         La contraseña es obligatoria
       </div>
 
@@ -124,7 +120,6 @@
       <label class="form-label">Repetir contraseña</label>
 
       <div class="input-group">
-
         <input
           [type]="mostrarPassword2 ? 'text' : 'password'"
           class="form-control"
@@ -135,7 +130,6 @@
             || formRegistro.errors?.['noCoinciden']
           "
         />
-
         <button
           type="button"
           class="btn btn-outline-secondary"
@@ -143,11 +137,10 @@
         >
           {{ mostrarPassword2 ? 'Ocultar' : 'Mostrar' }}
         </button>
-
       </div>
 
       <!-- mensajes error -->
-      <div class="invalid-feedback d-block" *ngIf="formRegistro.get('password2')?.errors?.['required']">
+      <div class="invalid-feedback" *ngIf="formRegistro.get('password2')?.errors?.['required']">
         Repetir contraseña
       </div>
 
@@ -166,7 +159,7 @@
 
     <!-- botones -->
     <div class="d-flex justify-content-center gap-3">
-      <button type="submit" class="btn btn-primary" [disabled]="formRegistro.invalid">
+      <button type="submit" class="btn btn-primary" >
         Enviar
       </button>
 
@@ -174,6 +167,5 @@
         Limpiar
       </button>
     </div>
-
   </form>
 </main>
