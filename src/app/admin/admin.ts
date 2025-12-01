@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 /**
  * Este componente permite la administración de usuarios en el sistema. 
- *
  * @usageNotes
  * Datos desde localStorage con estructura: nombre, usuario, email, password.
  */
