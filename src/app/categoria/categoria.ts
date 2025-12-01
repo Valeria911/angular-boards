@@ -5,10 +5,10 @@ import { AuthService } from '../services/auth';
 import { Router} from '@angular/router';
 
 /**
- * Componente que muestra los juegos segun
- * categorías.
+ * @description
+ * Este componente que muestra los juegos segun las diferentes categorías.
  *
- * Pasos:
+ * Permite realizar las siguientes funciones:
  * - obtener categoría desde URL
  * - cargar juegos
  * - agregar juegos al carro de compras
@@ -23,14 +23,17 @@ import { Router} from '@angular/router';
   styleUrls: ['./categoria.css'],
   imports: [CommonModule]
 })
+
 export class CategoriaComponent implements OnInit {
 
   /**
+   * @description
    * Categoría actual en url
    */
   categoria = '';
 
   /**
+   * @description
    * Arreglo de juegos por categoría seleccionada
    */
   juegos: any[] = [];
@@ -81,7 +84,8 @@ export class CategoriaComponent implements OnInit {
   };
 
   /**
-   * sesión de usuario actual
+   * @description
+   * Determinar la sesión de usuario actual es relevante ya que solo los clientes pueden agregar juegos al carro de compras
    */
   sesion: any = null;
 

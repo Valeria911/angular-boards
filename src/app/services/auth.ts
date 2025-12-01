@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+/**
+ * @description Servicio para la gestión de autenticación de usuarios.
+ * Proporciona métodos para iniciar y cerrar sesión, verificar el estado de autenticación
+ * y gestionar usuarios en el almacenamiento local.
+ */
 @Injectable({
   providedIn: 'root'
 })

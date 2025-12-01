@@ -3,12 +3,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+/**
+ * @description Componente para la recuperación de contraseña de usuarios.
+ * Permite a los usuarios ingresar su correo electrónico registrado
+ * y recibir su contraseña si el correo existe en el sistema.
+ */
 @Component({
   selector: 'recuperar-password',
   templateUrl: './recuperar-password.html',
   styleUrls: ['./recuperar-password.css'],
   imports: [ReactiveFormsModule, CommonModule]
 })
+
 export class RecuperarPasswordComponent{
 
   formRecover!: FormGroup;

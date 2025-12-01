@@ -3,12 +3,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+/**
+ * @description Componente de perfil de usuario que permite ver y editar la información del perfil cuando el usuario es de tipo cliente
+ * incluye validaciones para los campos del formulario y funcionalidad para mostrar u ocultar la contraseña.
+ */
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.html',
   styleUrls: ['./perfil.css'],
   imports: [ReactiveFormsModule, CommonModule],
 })
+
 export class PerfilComponent implements OnInit {
 
   formPerfil!: FormGroup;
@@ -18,6 +23,9 @@ export class PerfilComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
+  /**
+   * @description Inicializa el componente, carga los datos del usuario desde el almacenamiento local y configura el formulario con validaciones.
+   */
   ngOnInit(): void {
 
     const sesionStr = localStorage.getItem('sesion');
@@ -56,6 +64,9 @@ export class PerfilComponent implements OnInit {
     this.mostrarPassword = !this.mostrarPassword;
   }
 
+  /**
+   * @description Guarda los cambios realizados en el perfil del usuario, actualiza el almacenamiento local y muestra un mensaje de confirmación.
+   */
   guardarCambios() {
     if (this.formPerfil.invalid) {
       this.formPerfil.markAllAsTouched();

@@ -6,12 +6,22 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+/**
+ * @description
+ * Componente que gestiona el login de usuarios.
+ *
+ * Permite realizar las siguientes funciones:
+ * - Validar formulario de login
+ * - Autenticar usuario
+ * - Redirigir según tipo de usuario
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
   imports: [RouterModule, ReactiveFormsModule, CommonModule]
 })
+
 export class LoginComponent {
 
   formLogin!: FormGroup;
@@ -49,8 +59,8 @@ export class LoginComponent {
         tipo: usuario.tipo || 'cliente'
       }));
 
-      //para test
-      window.location.assign(usuario.tipo === 'admin' ? '/admin' : '/perfil');
+      // Redirigir según tipo de usuario
+      window.location.assign(usuario.tipo === 'admin' ? '/admin' : '/home');
 
     } else {
       this.error = true;

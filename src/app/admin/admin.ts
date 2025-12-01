@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 /**
- * Este componente permite la administración de usuarios en el sistema. 
+ * @description
+ * Este componente permite administrar los usuarios del sistema. Además del administrador existen los usuarios tipo cliente. 
  * @usageNotes
- * Datos desde localStorage con estructura: nombre, usuario, email, password.
+ * Datos provienen desde localStorage con estructura: nombre, nombre de usuario, email, password.
  */
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.html',
-  styleUrls: ['./admin.css']
+  styleUrls: ['./admin.css'],
+  imports: [CommonModule]
 })
+
 export class AdminComponent implements OnInit {
   usuarios: any[] = [];
   /**
+   * @description
    * Al iniciar el componente se carga la lista de usuarios desde localStorage
    */
   ngOnInit(): void {
@@ -23,7 +28,8 @@ export class AdminComponent implements OnInit {
   }
 
   /**
-   * Eliminar un usuario por correo electrónico y actualizar la información en localStorage.
+   * @description
+   * Este método permite eliminar un usuario por correo electrónico y actualizar la información en localStorage.
    *
    * @param correo Correo registrado del usuario a eliminar.
    *

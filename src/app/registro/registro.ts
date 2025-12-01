@@ -5,12 +5,18 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
+/**
+ * @description Componente para el registro de nuevos usuarios.
+ * Permite a los usuarios registrarse proporcionando su información personal
+ * y credenciales de acceso.
+ */
 @Component({
   selector: 'registro',
   templateUrl: './registro.html',
   styleUrls: ['./registro.css'],
   imports: [ReactiveFormsModule, RouterModule, CommonModule]
 })
+
 export class RegistroComponent {
   formRegistro!: FormGroup;
 
