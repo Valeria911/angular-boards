@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-recover',
+  selector: 'recuperar-password',
   templateUrl: './recuperar-password.html',
   styleUrls: ['./recuperar-password.css'],
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule, CommonModule]
 })
-export class RecuperarPasswordComponent {
+export class RecuperarPasswordComponent{
 
   formRecover!: FormGroup;
   mensaje = '';
