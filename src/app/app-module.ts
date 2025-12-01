@@ -19,22 +19,22 @@ import { FooterComponent } from './footer/footer';
   declarations: [
     App,
     HomeComponent,
+    FooterComponent 
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NavbarComponent,
     AdminComponent,
     LoginComponent,
     PerfilComponent,
     RegistroComponent,
     RecuperarPasswordComponent,
     CarritoComponent,
-    CategoriaComponent,
-    NavbarComponent,
-    FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    CategoriaComponent
+],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection()
