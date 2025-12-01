@@ -12,31 +12,31 @@ export class CarritoComponent implements OnInit {
   
   carrito: any[] = [];
   total = 0;
-  claveCarro= '';
+  claveCarrito= '';
 
   ngOnInit(): void {
     const sesionStr = localStorage.getItem('sesion');
     const sesion = sesionStr ? JSON.parse(sesionStr) : null;
 
     if (sesion?.logueado) {
-      this.claveCarro= 'carro_' + sesion.email;
+      this.claveCarrito= 'carrito_' + sesion.email;
       this.cargarCarrito();
     }
   }
 
   cargarCarrito() {
-    this.carrito = JSON.parse(localStorage.getItem(this.claveCarro) || '[]');
+    this.carrito = JSON.parse(localStorage.getItem(this.claveCarrito) || '[]');
     this.total = this.carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
   }
 
   eliminar(index: number) {
     this.carrito.splice(index, 1);
-    localStorage.setItem(this.claveCarro, JSON.stringify(this.carrito));
+    localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
     this.cargarCarrito();
   }
 
   vaciarCarrito() {
-    localStorage.removeItem(this.claveCarro);
+    localStorage.removeItem(this.claveCarrito);
     this.cargarCarrito();
   }
 
@@ -54,7 +54,7 @@ export class CarritoComponent implements OnInit {
     if (nuevaCantidad < 1) return;
 
     this.carrito[index].cantidad = nuevaCantidad;
-    localStorage.setItem(this.claveCarro, JSON.stringify(this.carrito));
+    localStorage.setItem(this.claveCarrito, JSON.stringify(this.carrito));
     this.cargarCarrito();
   }
 
