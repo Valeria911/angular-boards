@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Panel de Administración</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-info">
+      <tr>
+        <th>#</th> 
+        <th>Nombre completo</th>
+        <th>Nombre usuario</th>
+        <th>Email</th>
+        <th>Fecha nacimiento</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.tipo }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(usuario.email)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
