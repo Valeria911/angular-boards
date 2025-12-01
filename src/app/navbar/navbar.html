@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    <a class="navbar-brand" routerLink="/">
-        <img src="assets/img/logoBoards.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+    <a class="nav-link navbar-expand-lg px-4" routerLink="/">
+        <img src="../assets/img/logoBoards.png" alt="Boards Logo" width="80" height="80" class="d-inline-block align-top" >
         Boards - Juegos de Mesa
     </a>
 
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
 
-            <!-- Siempre visibles -->
+            <!-- siempre visibles -->
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/categoria', 'medieval']">Medieval</a>
             </li>
@@ -45,7 +45,7 @@
                 </li>
             </ng-container>
 
-            <!-- sin sesión -->
+            <!-- sin sesión iniciada -->
             <ng-container *ngIf="!sesion?.logueado">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/registro">Registro</a>
