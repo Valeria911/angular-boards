@@ -1,0 +1,21 @@
+[
+  { "id": 1, 
+    "cliente": "Juan Perez",
+    "juego": "Catan",
+    "fecha": "01-12-2024",
+    "monto": 35000
+  },
+  { "id": 2, 
+    "cliente": "Maria Gomez",
+    "juego": "Uno",
+    "fecha": "05-12-2024",
+    "monto": 15000
+  },
+  { "id": 3, 
+    "cliente": "Luis Torres",
+    "juego": "Brainbox",
+    "fecha": "12-11-2024",
+    "monto": 55000
+  }
+  
+]
