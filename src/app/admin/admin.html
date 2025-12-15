@@ -5,16 +5,15 @@
     <thead class="table-info">
       <tr>
         <th>#</th> 
-        <th>Nombre completo</th>
         <th>Nombre usuario</th>
         <th>Email</th>
-        <th>Fecha nacimiento</th>
         <th>Rol</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.email }}</td>
         <td>{{ usuario.tipo }}</td>
@@ -23,6 +22,29 @@
             Eliminar
           </button>
         </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="mt-5">Ventas del Mes</h4>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-info">
+      <tr>
+        <th>#</th>
+        <th>Cliente</th>
+        <th>Juego</th>
+        <th>Fecha</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let venta of ventas">
+        <td>{{ venta.id }}</td>
+        <td>{{ venta.cliente }}</td>
+        <td>{{ venta.juego }}</td>
+        <td>{{ venta.fecha }}</td>
+        <td>{{ venta.monto | currency:'CLP' }}</td>
       </tr>
     </tbody>
   </table>
