@@ -60,7 +60,7 @@ export class LoginComponent {
       }));
 
       // Redirigir según tipo de usuario
-      window.location.assign(usuario.tipo === 'admin' ? '/admin' : '/home');
+      window.location.assign(usuario.tipo === 'admin' ? '/' : '/');
 
     } else {
       this.error = true;
