@@ -5,6 +5,7 @@ import { AdminComponent } from './admin/admin';
 import { CarritoComponent } from './carrito/carrito';
 import { CategoriaComponent } from './categoria/categoria';
 import { LoginComponent } from './login/login';
+import { PreventasComponent } from './preventas/preventas'; 
 import { PerfilComponent } from './perfil/perfil';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password';
 import { RegistroComponent } from './registro/registro';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'recuperar-password', component: RecuperarPasswordComponent },
-  { path: 'registro', component: RegistroComponent }
+  { path: 'registro', component: RegistroComponent },
+  { path: 'preventas', component: PreventasComponent }
 ];
 
 @NgModule({
