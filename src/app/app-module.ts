@@ -1,7 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { HomeComponent } from './home/home';
@@ -14,12 +13,16 @@ import { CarritoComponent } from './carrito/carrito';
 import { CategoriaComponent } from './categoria/categoria';
 import { NavbarComponent } from './navbar/navbar';
 import { FooterComponent } from './footer/footer';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
+import { PreventasComponent } from './preventas/preventas';
+
 
 @NgModule({
   declarations: [
     App,
     HomeComponent,
-    FooterComponent 
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +36,14 @@ import { FooterComponent } from './footer/footer';
     RegistroComponent,
     RecuperarPasswordComponent,
     CarritoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    HttpClientModule,
+    PreventasComponent
 ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection()
+    provideZonelessChangeDetection(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })
