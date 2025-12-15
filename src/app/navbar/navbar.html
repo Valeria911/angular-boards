@@ -22,17 +22,10 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/categoria', 'ingenio']">Ingenio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/preventas">Preventas</a>
-            </li>
+
 
             <!-- sesión activa -->
             <ng-container *ngIf="sesion?.logueado">
-
-                <!-- tipo admin -->
-                <li class="nav-item" *ngIf="sesion?.tipo === 'admin'">
-                    <a class="nav-link" routerLink="/admin">Panel Admin</a>
-                </li>
 
                 <!-- tipo cliente -->
                 <li class="nav-item" *ngIf="sesion?.tipo !== 'admin'">
@@ -40,6 +33,14 @@
                 </li>
                 <li class="nav-item" *ngIf="sesion?.tipo !== 'admin'">
                     <a class="nav-link" routerLink="/carrito">Carro de compras</a>
+                </li>
+
+                <!-- tipo admin -->
+                <li class="nav-item" *ngIf="sesion?.tipo === 'admin'">
+                    <a class="nav-link" routerLink="/admin">Panel Admin</a>
+                </li>
+                <li class="nav-item" *ngIf="sesion?.tipo === 'admin'">
+                <a class="nav-link" routerLink="/preventas">Preventas</a>
                 </li>
 
                 <!-- salir -->
