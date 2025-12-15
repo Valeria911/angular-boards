@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { VentasService } from '../services/ventas';
 
 /**
  * @description
@@ -16,6 +17,11 @@ import { CommonModule } from '@angular/common';
 
 export class AdminComponent implements OnInit {
   usuarios: any[] = [];
+
+  ventas: any[] = [];
+  
+  constructor(private ventasService: VentasService){}
+  
   /**
    * @description
    * Al iniciar el componente se carga la lista de usuarios desde localStorage
@@ -25,7 +31,16 @@ export class AdminComponent implements OnInit {
     if (data) {
       this.usuarios = JSON.parse(data);
     }
-  }
+
+    this.ventasService.getVentas().subscribe({
+      next: (data) => {
+      this.ventas = data;
+    },
+      error: (error) => {
+      console.error('Error al cargar las ventas:', error);
+    }
+  });
+}
 
   /**
    * @description
@@ -38,5 +53,4 @@ export class AdminComponent implements OnInit {
     this.usuarios = this.usuarios.filter(u => u.email !== correo);
     localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
   }
-
 }
