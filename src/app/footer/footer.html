@@ -1,3 +1,18 @@
   <footer class="bg-light text-black text-center py-3 mt-6">
+    <div class="api-content">
+
+    <p class="title">Tipo de Cambio (API externa)</p>
+
+    <p *ngIf="dolarValor; else cargando">
+      Dólar: CLP {{ dolarValor | number:'1.0-0' }}
+      <br />
+      <small>Última actualización: {{ fecha }}</small>
+    </p>
+
+    <ng-template #cargando>
+      <p>Cargando valor del dólar...</p>
+    </ng-template>
+
+  </div>
     <p class="mb-2">&copy; 2025 Boards - Todos los derechos reservados.</p>
   </footer>
