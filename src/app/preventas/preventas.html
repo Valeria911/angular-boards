@@ -1,0 +1,33 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">
+    Juegos en Preventa
+  </h2>
+
+  <div class="row" *ngIf="preventas.length > 0; else cargando">
+
+    <div class="col-md-4 mb-4" *ngFor="let p of preventas">
+      <div class="card h-100 shadow">
+
+        <img [src]="p.imagen" class="card-img-top" [alt]="p.titulo">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ p.titulo }}</h5>
+          <p class="card-text">
+            <strong>Precio: </strong> ${{ p.precio | number }}
+          </p>
+          <p class="card-text">
+            <strong>Estado: </strong>
+            {{ p.estado }}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <ng-template #cargando>
+    <p class="text-center">Cargando información de preventas</p>
+  </ng-template>
+
+</div>
