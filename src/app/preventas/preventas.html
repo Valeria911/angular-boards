@@ -4,24 +4,123 @@
     Juegos en Preventa
   </h2>
 
-  <div class="row" *ngIf="preventas.length > 0; else cargando">
+  <!--formulario para crear y editar preventas-->
+  <div class="card p-4 mb-4 shadow">
+    <h4 class="mb-3">
+      {{ editando ? 'Editar Preventa' : 'Crear Nueva Preventa' }}
+    </h4>
 
+    <div class="row">
+      <!-- titulo -->
+      <div class="col-md-3 mb-2">
+        <label class="form-label">Título</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="formulario.titulo"
+          placeholder="Título del juego">
+      </div>
+
+      <!-- descripcion -->
+      <div class="col-md-3 mb-2">
+        <label class="form-label">Descripción</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="formulario.descripcion"
+          placeholder="Descripción del juego">
+      </div>
+
+      <!-- fecha de lanzamiento -->
+      <div class="col-md-3 mb-2">
+        <label class="form-label">Fecha Lanzamiento</label>
+        <input
+          type="date"
+          class="form-control"
+          [(ngModel)]="formulario.fechaLanzamiento">
+      </div>
+
+      <!-- precio -->
+      <div class="col-md-3 mb-2">
+        <label class="form-label">Precio</label>
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="formulario.precio"
+          placeholder="39990">
+      </div>
+
+      <!-- imagen -->
+      <div class="col-md-12 mt-2">
+        <label class="form-label">URL Imagen</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="formulario.imagen"
+          placeholder="https://...">
+      </div>
+    </div>
+
+    <!-- botones del formulario -->
+    <div class="mt-3">
+      <button class="btn btn-info me-2" (click)="guardar()">
+        {{ editando ? 'Actualizar Preventa' : 'Guardar Preventa' }}
+      </button>
+
+      <button
+        *ngIf="editando"
+        class="btn btn-light"
+        (click)="cancelar()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <!-- listado de preventas -->
+  <div class="row" *ngIf="preventas.length > 0; cargando">
     <div class="col-md-4 mb-4" *ngFor="let p of preventas">
       <div class="card h-100 shadow">
 
+        <!-- imagen -->
         <img [src]="p.imagen" class="card-img-top" [alt]="p.titulo">
-
+        
         <div class="card-body">
+
+          <!-- titulo y precio -->
           <h5 class="card-title">{{ p.titulo }}</h5>
           <p class="card-text">
             <strong>Precio: </strong> ${{ p.precio | number }}
           </p>
+
+          <!-- descripcion -->
           <p class="card-text">
-            <strong>Estado: </strong>
-            {{ p.estado }}
+            <strong>Descripción: </strong>
+            {{ p.descripcion }}
+          </p>
+
+          <!-- fecha de lanzamiento -->
+          <p class="card-text">
+            <strong>Fecha de Lanzamiento: </strong>
+            {{ p.fechaLanzamiento | date:'longDate' }}
           </p>
         </div>
 
+        <!-- botones editar y eliminar -->
+        <div class="card-footer d-flex justify-content-between">
+
+          <!-- boton editar -->
+          <button
+            class="btn btn-sm btn-primary"
+            (click)="editar(p)">
+            Editar
+          </button>
+
+          <!-- boton eliminar -->
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="eliminar(p.id!)">
+            Eliminar
+          </button>
       </div>
     </div>
   </div>
