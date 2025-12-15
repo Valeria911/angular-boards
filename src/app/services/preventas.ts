@@ -2,6 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface Preventa {
+  id: number;
+  titulo: string;
+  descripcion: string;
+  precio: number;
+  imagen: string;
+  fechaLanzamiento: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
