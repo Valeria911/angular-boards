@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
 })
 
+/**
+ * @Description Componente para gestionar las preventas de productos. 
+ * Permite agregar, editar, eliminar y listar preventas, almacenando los datos en localStorage.
+ * @Author Valeria Gutiérrez
+ */
 export class PreventasComponent implements OnInit {
 
   preventas: Preventa[] = [];
